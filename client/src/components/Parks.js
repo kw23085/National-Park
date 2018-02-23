@@ -10,7 +10,7 @@ class Parks extends Component {
                 <h1> Hello! National Parks </h1>
                 <h1>Hi</h1>
                 <ul>{this.props.parks.data && this.props.parks.data.map((p, i)=>{
-                    return <li key={i}> {p.name} </li>
+                    return p.designation === "National Park" ? <li key={i}> {p.name} </li> : null
                 })}</ul>
             </div>  
         )

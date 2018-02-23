@@ -19,13 +19,19 @@ mongoose.connect(MONGODB_URI, (err) => {
 
 app.use(express.static(`${__dirname}/client/build`))
 
+app.use(logger('dev'))
+app.use(bodyParser.json())
+
+
 //get nation parks api
 app.get('/api', (req, res) => {
-    request.get(`https://developer.nps.gov/api/v1/parks?api_key=${APIKEY}`, (err, resposne, body) => {
+    request.get(`https://developer.nps.gov/api/v1/parks?limit=504&start=1&q=national%20park&fields=national%20park&fields=&sort=nationalpark&sort=&api_key=${APIKEY}`, (err, resposne, body) => {
         console.log(body)
         res.send(body)
     })
 })
+
+app.use('/api/users', usersRoutes)
 
 app.get('*', (req, res) => {
     res.sendFile(`${__dirname}/client/build/index.html`)

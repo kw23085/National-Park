@@ -19,8 +19,12 @@ module.exports = {
 
     //create a new user
     create: (req, res) => {
+		console.log('let us create a user', req.body)
 		User.create(req.body, (err, user) => {
-			if(err) return res.json({success: false, code: err.code})
+			if(err) {
+				console.log(err)
+				return res.json({success: false, code: err.code})
+			}
 
 			res.json({success: true, message: "User created."})
 		})

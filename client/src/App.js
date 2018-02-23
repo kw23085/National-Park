@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
-import { Redirect, Route, NavLink } from 'react-router-dom';
-import ParkList from './components/Parklist';
-import Navbar from './components/Navbar'
-
-
-
+import { Redirect, Route, Switch } from 'react-router-dom';
+import Parks from './components/Parks';
+import Navbar from './components/Navbar';
+import Home from './components/Home'
 
 class App extends Component {
 
@@ -34,16 +32,24 @@ class App extends Component {
           <Navbar />
 
         {/* Routes */}
-        
+        <Switch>
           <Route exact path="/" render={() => {
-            return <Redirect to="/parks" />
+            return <Redirect to="/home" />
           }} />
           
-          <Route path='/parks' render={() => {
-            return (<ParkList parks={this.state.parks} />)
+          <Route path='/home' render={() =>{
+            return (<Home/> )
+          }}/>
+
+          <Route path='/browseparks' render={() => {
+            return (<Parks parks={this.state.parks} />)
           }} />
         
-
+          {/* <Route path='/signin' render= {() => {
+            return (<Signin />)
+          }}/>
+           */}
+        </Switch>
         
 
       </div>
