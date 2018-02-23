@@ -30,17 +30,19 @@ class App extends Component {
     return (
       <div className="App">
 
-      {/* Navbar */}
-      {/* <NavLink/> */}
+        {/* Navbar */}
+          <Navbar />
 
-        <Route exact path="/" render={() => {
-          return <Redirect to="/parks" />
-        }} />
-         
-        <Route path='/parks' render={() => {
-          return (<ParkList parks={this.state.parks} />)
-        }} />
-       
+        {/* Routes */}
+        
+          <Route exact path="/" render={() => {
+            return <Redirect to="/parks" />
+          }} />
+          
+          <Route path='/parks' render={() => {
+            return (<ParkList parks={this.state.parks} />)
+          }} />
+        
 
         
 
