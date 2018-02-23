@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
-import { Redirect, Route } from 'react-router-dom';
-import ParkList from './components/Parklist'
+import { Redirect, Route, NavLink } from 'react-router-dom';
+import ParkList from './components/Parklist';
+import Navbar from './components/Navbar'
 
 
 
 
 class App extends Component {
+
   state = {
     parks :[]
   }
@@ -28,17 +30,19 @@ class App extends Component {
     return (
       <div className="App">
 
-        <h1> Hello! National Parks </h1>
+      {/* Navbar */}
+      {/* <NavLink/> */}
+
         <Route exact path="/" render={() => {
           return <Redirect to="/parks" />
         }} />
-      
-        <div>
-          <Route path='/parks' render={() => {
-            return (<ParkList parks={this.state.parks} />)
-          }} />
-        </div>
+         
+        <Route path='/parks' render={() => {
+          return (<ParkList parks={this.state.parks} />)
+        }} />
+       
 
+        
 
       </div>
     );
