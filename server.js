@@ -19,8 +19,10 @@ mongoose.connect(MONGODB_URI, (err) => {
 
 app.use(express.static(`${__dirname}/client/build`))
 
+//get nation parks api
 app.get('/api', (req, res) => {
     request.get(`https://developer.nps.gov/api/v1/parks?api_key=${APIKEY}`, (err, resposne, body) => {
+        console.log(body)
         res.send(body)
     })
 })

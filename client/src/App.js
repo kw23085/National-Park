@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
+import { Redirect, Route } from 'react-router-dom';
+import ParkList from './components/Parklist'
 
 
 
@@ -10,26 +11,35 @@ class App extends Component {
   state = {
     parks :[]
   }
+
   componentDidMount = () => {
-    axios({method: 'get', url: '/api'})
+    //axios like a middle man
+    axios({method: 'get', url: '/api'}) // talking to the backend
     .then((res) => {
+      console.log(res.data)
       this.setState({
         parks: res.data
       })
     })
-
   }
+
   render() {
+    const { parks } = this.state.parks
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <h1 className="App-title"></h1>
+
+        <h1> Hello! National Parks </h1>
+        <Route exact path="/" render={() => {
+          return <Redirect to="/parks" />
+        }} />
+      
+        <div>
+          <Route path='/parks' render={() => {
+            return (<ParkList parks={this.state.parks} />)
+          }} />
+        </div>
+
+
       </div>
     );
   }
