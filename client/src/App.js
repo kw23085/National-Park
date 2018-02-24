@@ -4,7 +4,9 @@ import axios from 'axios';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Parks from './components/Parks';
 import Navbar from './components/Navbar';
-import Home from './components/Home'
+import Home from './components/Home';
+import Signin from './components/Signin';
+import Signup from './components/Signup'
 
 class App extends Component {
 
@@ -45,10 +47,14 @@ class App extends Component {
             return (<Parks parks={this.state.parks} />)
           }} />
         
-          {/* <Route path='/signin' render= {() => {
+          <Route path='/signin' render= {() => {
             return (<Signin />)
           }}/>
-           */}
+
+          <Route path='/signup' render={() => {
+            return (<Signup/>)
+          }}/>
+          
         </Switch>
         
 
