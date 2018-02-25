@@ -3,10 +3,12 @@ import './App.css';
 import axios from 'axios';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Parks from './components/Parks';
+import ParksDetails from './components/ParksDetails';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Signin from './components/Signin';
 import Signup from './components/Signup'
+
 
 class App extends Component {
 
@@ -14,16 +16,16 @@ class App extends Component {
     parks :[]
   }
 
-  componentDidMount = () => {
-    //axios like a middle man
-    axios({method: 'get', url: '/api'}) // talking to the backend
-    .then((res) => {
-      console.log(res.data)
-      this.setState({
-        parks: res.data
-      })
-    })
-  }
+  // componentDidMount = () => {
+  //   //axios like a middle man
+  //   axios({method: 'get', url: '/api'}) // talking to the backend
+  //   .then((res) => {
+  //     console.log(res.data)
+  //     this.setState({
+  //       parks: res.data
+  //     })
+  //   })
+  // }
 
   render() {
     const { parks } = this.state.parks
@@ -46,6 +48,11 @@ class App extends Component {
           <Route path='/browseparks' render={() => {
             return (<Parks parks={this.state.parks} />)
           }} />
+
+          <Route path='/browseparks/:id' render={() =>{
+            
+            return (<ParksDetails />)
+          }}/>
         
           <Route path='/signin' render= {() => {
             return (<Signin />)
