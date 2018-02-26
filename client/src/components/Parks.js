@@ -47,7 +47,7 @@ class Parks extends Component {
                         return p.designation === "National Park" ? 
                             <li key={i}> 
                             <Link to={`/browseparks/${p.id}`}> {p.fullName} | { p.states } </Link>
-                                {/* <p>{p.description}</p> */}
+                                
                             </li>
                             : null
                         })}
