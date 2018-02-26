@@ -31,6 +31,13 @@ app.get('/api', (req, res) => {
     })
 })
 
+app.get('/api/:parkCode' ,(req, res) => {
+    console.log("hit park code", req.params.parkCode)
+    request.get(`https://developer.nps.gov/api/v1/parks?parkCode=${req.params.parkCode}&api_key=${APIKEY}`,(err, resposne, body) => {
+        res.send(body)
+    })
+})
+
 app.use('/api/users', usersRoutes)
 
 app.get('*', (req, res) => {

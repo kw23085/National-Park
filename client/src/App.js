@@ -33,16 +33,14 @@ class App extends Component {
             return (<Home/> )
           }}/>
 
-          <Route path='/browseparks' render={() => {
+          <Route exact path='/browseparks' render={() => {
             return (<Parks parks={ parks } />)
           }} />
 
-          <Route path='/browseparks/:id' render={() =>{
-            const parkId = parks.data.data.params.id
-            const park = parks.find((p) => {
-             return p.id === parkId
-            })
-            return (<ParksDetails park={ park }/>)
+          <Route path='/browseparks/:id' render={(route) =>{
+            console.log(route.match.params.id)
+            const parkCode = route.match.params.id
+            return (<ParksDetails parkCode={ parkCode }/>)
           }}/>
         
           <Route path='/signin' render= {() => {

@@ -46,7 +46,7 @@ class Parks extends Component {
                         parklist.map((p, i)=>{
                         return p.designation === "National Park" ? 
                             <li key={i}> 
-                            <Link to={`/browseparks/${p.id}`}> {p.fullName} | { p.states } </Link>
+                            <Link to={`/browseparks/${p.parkCode}`}> {p.fullName} | { p.states } </Link>
                                 
                             </li>
                             : null
