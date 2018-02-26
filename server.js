@@ -31,6 +31,7 @@ app.get('/api', (req, res) => {
     })
 })
 
+//get specific nation park api
 app.get('/api/:parkCode' ,(req, res) => {
     console.log("hit park code", req.params.parkCode)
     request.get(`https://developer.nps.gov/api/v1/parks?parkCode=${req.params.parkCode}&api_key=${APIKEY}`,(err, resposne, body) => {
@@ -48,4 +49,4 @@ app.listen(PORT, (err) => {
     console.log(err || `Server running on port ${PORT}`)
 })
 
-//National Park API
+
