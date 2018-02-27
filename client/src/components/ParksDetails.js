@@ -35,14 +35,14 @@ class ParksDetails extends Component {
             <h1>{this.state.park.fullName} | {this.state.park.states}</h1>
             <h4>{this.state.park.description}</h4>
 
-            <img alt={this.state.park.name} src="../public/images/bryce-canyon-national-park.jpg"/>
+            {/* <img alt={this.state.park.name} src="../public/images/bryce-canyon-national-park.jpg"/> */}
 
             <form onSubmit={this.addComment.bind(this)}>
             <input ref="comment" type="text" placeholder="add your comment"/>
             <button>Add your comment</button>
             </form>
-            <h2>{this.state.yourComment.map((c) =>{
-                return <div>{c}</div>
+            <h2>{this.state.yourComment.map((c, i) =>{
+                return <div key={i}>{c}</div>
             })}</h2>
             </div>
         )
