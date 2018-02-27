@@ -1,5 +1,9 @@
 const User = require('../models/User.js')
 
+const signToken = require('../serverAuth.js').signToken
+//import the signToken function,create signed tokens 
+//when the user create and user authenticate actions in our controller are accessed. 
+
 module.exports = {
 	// list all users
 	index: (req, res) => {
@@ -19,14 +23,11 @@ module.exports = {
 
     //create a new user
     create: (req, res) => {
-		console.log('let us create a user', req.body)
 		User.create(req.body, (err, user) => {
-			if(err) {
-				console.log(err)
-				return res.json({success: false, code: err.code})
-			}
-
-			res.json({success: true, message: "User created."})
+			if(err) return res.json({success: false, code: err.code})
+			// once user is created, generate a token to "log in":                       //**** NEW CODE  *****
+			const token = signToken(user) 							 					 //**** NEW CODE  *****
+			res.json({success: true, message: "User created. Token attached.", token})   //**** NEW CODE  *****
 		})
 	},
 
@@ -50,7 +51,7 @@ module.exports = {
 
     //login
     authenticate: (req, res) => {
-		// check exsiting user
+		// check if the user exists
 		User.findOne({email: req.body.email}, (err, user) => {
 			// if there's no user or the password is invalid
 			if(!user || !user.validPassword(req.body.password)) {
@@ -58,7 +59,8 @@ module.exports = {
 				return res.json({success: false, message: "Invalid credentials."})
 			}
 
-			res.json({success: true, message: "User authenticated."})
+			const token = signToken(user)								  //**** NEW CODE  *****
+			res.json({success: true, message: "Token attached.", token})  //**** NEW CODE  *****
 		})
 	}
 }

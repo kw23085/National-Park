@@ -8,6 +8,7 @@ const
     MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/pocketparks',
     PORT = process.env.PORT || 3001,
     usersRoutes = require('./routes/users.js'),
+    
     APIKEY = process.env.NP_API_KEY
     request = require('request'),
     User = require ('./models/User.js'),
@@ -22,6 +23,7 @@ app.use(express.static(`${__dirname}/client/build`))
 
 app.use(logger('dev'))
 app.use(bodyParser.json())
+//need a app.use ('/api/parkcomment)
 
 //all the users
 app.use('/api/users', usersRoutes)
