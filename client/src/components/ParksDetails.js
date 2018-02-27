@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom'
 class ParksDetails extends Component {
     state ={ 
-        park: [],
+        park: null,
         comment:[],
         yourComment: []
     }
@@ -30,12 +30,15 @@ class ParksDetails extends Component {
 
     render() {
         
+        if(!this.state.park) return <h1>Loading...</h1>
+        
         return(
             <div>
             <h1>{this.state.park.fullName} | {this.state.park.states}</h1>
+            <h4>-Description-</h4>
             <h4>{this.state.park.description}</h4>
 
-            {/* <img alt={this.state.park.name} src="../public/images/bryce-canyon-national-park.jpg"/> */}
+            <img alt={this.state.park.name} src={`/images/${this.state.park.parkCode}.jpg`}/>
 
             <form onSubmit={this.addComment.bind(this)}>
             <input ref="comment" type="text" placeholder="add your comment"/>

@@ -9,8 +9,9 @@ const
     PORT = process.env.PORT || 3001,
     usersRoutes = require('./routes/users.js'),
     APIKEY = process.env.NP_API_KEY
-    request = require('request')
-
+    request = require('request'),
+    User = require ('./models/User.js'),
+    ParkComment = require('./models/ParkComment.js')
 
 
 mongoose.connect(MONGODB_URI, (err) => {
@@ -22,14 +23,8 @@ app.use(express.static(`${__dirname}/client/build`))
 app.use(logger('dev'))
 app.use(bodyParser.json())
 
-
-//get nation parks api
-app.get('/api', (req, res) => {
-    request.get(`https://developer.nps.gov/api/v1/parks?limit=504&start=1&q=national%20park&fields=national%20park&fields=&sort=nationalpark&sort=&api_key=${APIKEY}`, (err, resposne, body) => {
-        console.log(body)
-        res.send(body)
-    })
-})
+//all the users
+app.use('/api/users', usersRoutes)
 
 //get specific nation park api
 app.get('/api/:parkCode' ,(req, res) => {
@@ -39,7 +34,16 @@ app.get('/api/:parkCode' ,(req, res) => {
     })
 })
 
-app.use('/api/users', usersRoutes)
+//get nation parks api
+app.get('/api', (req, res) => {
+    request.get(`https://developer.nps.gov/api/v1/parks?limit=504&start=1&q=national%20park&fields=national%20park&fields=&sort=nationalpark&sort=&api_key=${APIKEY}`, (err, resposne, body) => {
+        console.log(body)
+        res.send(body)
+    })
+})
+
+
+
 
 app.get('*', (req, res) => {
     res.sendFile(`${__dirname}/client/build/index.html`)
