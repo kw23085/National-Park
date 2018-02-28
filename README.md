@@ -36,5 +36,5 @@ Basic CRUD app
 
 ### Pocket Parks Wireframe
 
-![Screenshot of Wireframe] (./readme_img/PocketParks_wireframe.jpg)
+![Screenshot of Wireframe](./readme_img/PocketParks_wireframe.jpg)
 
