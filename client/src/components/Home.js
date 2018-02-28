@@ -5,8 +5,12 @@ class Home extends Component {
     render(){
         return(
             <div>
-                <h1>Home</h1>
-
+                
+                <img style={{width:'100%', height:'auto'}} alt="" src={`/images/death-valley.jpg`}/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
             </div>
         )
     }

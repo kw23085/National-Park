@@ -57,10 +57,23 @@ function logOut() {
 	return true
 }
 
+//park comment field
+
+function getComments() {
+	return clientAuth({ method: 'get', url: '/api/comment' })
+}
+
+function createComment(fields, parkCode) {
+	return clientAuth({ method: 'post', url: '/api/'+ parkCode +'/comments', data: fields })
+}
+
+
 
 export default {
 	getCurrentUser,
 	logIn,
 	signUp,
-	logOut
+	logOut,
+	getComments,
+	createComment
 }

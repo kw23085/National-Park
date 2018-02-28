@@ -2,7 +2,7 @@ const
  	express = require('express'),
  	usersRouter = new express.Router(),
  	usersCtrl = require('../controllers/users.js'),
-	 verifyToken = require('../serverAuth.js').verifyToken //// import the verifyToken function
+	verifyToken = require('../serverAuth.js').verifyToken //// import the verifyToken function
 	 
 usersRouter.route('/')
  	.get(usersCtrl.index)
