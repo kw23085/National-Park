@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import clientAuth from '../clientAuth.js'
-// import { Link } from 'react-router-dom'
+import clientAuth from '../clientAuth.js';
+import { Link } from 'react-router-dom';
 
 class ParksDetails extends Component {
     state = { 
@@ -41,13 +41,16 @@ class ParksDetails extends Component {
 
     render() {
         
-        if(!this.state.park) return <h1>Loading...</h1>
+        if(!this.state.park) return <h1>Loading...
+            <img src={`/images/tree.png`} className="App-logo" alt="logo" />
+        </h1>
         return(
             <div>
             <h1>{this.state.park.fullName} | {this.state.park.states}</h1>
             <h3>-Description-</h3>
             <br/>
             <h4>{this.state.park.description}</h4>
+            <a href={this.state.park.url}>Visit {this.state.park.fullName}</a>
             <br/>
             <br/>
 

@@ -5,14 +5,16 @@ const Navbar = (props) => {
     console.log(props)
 	return (
 		<div>
+            <div>
             <NavLink to="/">Home</NavLink>
 			{props.currentUser
 				? (
 					<span>
                     <NavLink to="/browseparks">Browse Parks</NavLink>
-                    <NavLink to="/signout">Sign Out</NavLink>
                     <span> hi!    {props.currentUser.name}</span>
-					</span>
+                    <NavLink to="/signout">Sign Out</NavLink>
+                    
+					</span >
                     
 				)
 				: (
@@ -21,7 +23,8 @@ const Navbar = (props) => {
                          <NavLink to="/signup">Sign Up</NavLink>
 					</span>
 				)
-			}
+            }
+            </div>
 		</div>
 	)
 }
