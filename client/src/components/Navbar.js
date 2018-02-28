@@ -1,23 +1,28 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
 
-class Navbar extends Component{
-    render(){
-        return(
-            <div>
-                <ul>
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/browseparks">Browse Parks</NavLink>
-                <NavLink to="/signin">Sign In</NavLink>
-                <NavLink to="/signup">Sign Up</NavLink>
-                <NavLink to="/signout">Sign Out</NavLink>
-      
-
-                </ul>
-
-            </div>
-        )
-    }
+const Navbar = (props) => {
+    console.log(props)
+	return (
+		<div>
+            <NavLink to="/">Home</NavLink>
+			{props.currentUser
+				? (
+					<span>
+                    <NavLink to="/browseparks">Browse Parks</NavLink>
+                    <NavLink to="/signout">Sign Out</NavLink>
+					</span>
+                    
+				)
+				: (
+					<span>
+						 <NavLink to="/signin">Sign In</NavLink>
+                         <NavLink to="/signup">Sign Up</NavLink>
+					</span>
+				)
+			}
+		</div>
+	)
 }
 
 export default Navbar

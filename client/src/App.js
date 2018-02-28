@@ -35,7 +35,7 @@ class App extends Component {
       <div className="App">
 
         {/* Navbar */}
-          <Navbar />
+          <Navbar currentUser={currentUser}/>
 
         {/* Routes */}
         <Switch>
