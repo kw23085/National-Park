@@ -1,10 +1,10 @@
 const
     mongoose = require ('mongoose'),
-    ParkCommentSchema = new mongoose.Schema({
+    parkCommentSchema = new mongoose.Schema({
         body: {type: String},
+        parkCode: {type: String},
         by: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
-
     })
 
-const ParkComment = mongoose.model('ParkComment', ParkCommentSchema)
+const ParkComment = mongoose.model('ParkComment', parkCommentSchema)
 module.exports = ParkComment

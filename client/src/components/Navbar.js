@@ -8,8 +8,9 @@ class Navbar extends Component{
                 <ul>
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/browseparks">Browse Parks</NavLink>
-                <NavLink to="/signin">Sign in</NavLink>
-                <NavLink to="/signup">Sign up</NavLink>
+                <NavLink to="/signin">Sign In</NavLink>
+                <NavLink to="/signup">Sign Up</NavLink>
+                <NavLink to="/signout">Sign Out</NavLink>
       
 
                 </ul>

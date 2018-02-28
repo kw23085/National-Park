@@ -1,22 +1,36 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Redirect, Route, Switch } from 'react-router-dom';
+import clientAuth from './clientAuth'
+
 import Parks from './components/Parks';
 import ParksDetails from './components/ParksDetails';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Signin from './components/Signin';
-import Signup from './components/Signup'
+import Signup from './components/Signup';
+import SignOut from './components/SignOut'
 
 
 class App extends Component {
 
   state = {
-    parks :[]
+    parks :[],
+    currentUser: clientAuth.getCurrentUser()
   }
 
+  onLoginSuccess(user) {
+		this.setState({ currentUser: clientAuth.getCurrentUser() })
+  }
+  
+  signOut() {
+		clientAuth.logOut()
+		this.setState({ currentUser: null })
+	}
+
+
   render() {
-    const { parks } = this.state.parks
+    const { parks, currentUser } = this.state
     return (
       <div className="App">
 
@@ -34,7 +48,11 @@ class App extends Component {
           }}/>
 
           <Route exact path='/browseparks' render={() => {
-            return (<Parks parks={ parks } />)
+            if(!currentUser) {
+              return <Redirect to="/signin" />
+            } else {
+              return (<Parks parks={ parks } />)
+            }
           }} />
 
           <Route path='/browseparks/:id' render={(route) =>{
@@ -47,8 +65,12 @@ class App extends Component {
             return (<Signin />)
           }}/>
 
-          <Route path='/signup' render={() => {
-            return (<Signup/>)
+          <Route path='/signup' render={(props) => {
+            return (<Signup {...props} onSignUpSuccess={this.onLoginSuccess.bind(this)}/>)
+          }}/>
+
+          <Route path='/signout' render={(props) =>{
+            return(<SignOut onsignOut= {this.signOut.bind(this)}/>)
           }}/>
           
         </Switch>

@@ -39,6 +39,7 @@ function logIn(credentials) {
 function signUp(userInfo) {
 	return clientAuth({ method: 'post', url: '/api/users', data: userInfo})
 		.then(res => {
+			console.log(res.data)
 			const token = res.data.token
 			if(token) {
 				// sets token as an included header for all subsequent api requests

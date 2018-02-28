@@ -12,7 +12,8 @@ const
     APIKEY = process.env.NP_API_KEY
     request = require('request'),
     User = require ('./models/User.js'),
-    ParkComment = require('./models/ParkComment.js')
+    ParkComment = require('./models/ParkComment.js'),
+    verifyToken = require('./serverAuth.js').verifyToken
 
 
 mongoose.connect(MONGODB_URI, (err) => {
@@ -31,8 +32,10 @@ app.use('/api/users', usersRoutes)
 //get specific nation park api
 app.get('/api/:parkCode' ,(req, res) => {
     console.log("hit park code", req.params.parkCode)
-    request.get(`https://developer.nps.gov/api/v1/parks?parkCode=${req.params.parkCode}&api_key=${APIKEY}`,(err, resposne, body) => {
-        res.send(body)
+    ParkComment.find({parkCode: req.params.parkCode}).populate('by').exec((err, allDatParksComments) => {
+        request.get(`https://developer.nps.gov/api/v1/parks?parkCode=${req.params.parkCode}&api_key=${APIKEY}`,(err, resposne, body) => {
+            res.json({...JSON.parse(body), parkComments: allDatParksComments})
+        })
     })
 })
 
@@ -40,11 +43,16 @@ app.get('/api/:parkCode' ,(req, res) => {
 app.get('/api', (req, res) => {
     request.get(`https://developer.nps.gov/api/v1/parks?limit=504&start=1&q=national%20park&fields=national%20park&fields=&sort=nationalpark&sort=&api_key=${APIKEY}`, (err, resposne, body) => {
         console.log(body)
-        res.send(body)
+        const data = JSON.parse(body)
+        res.json(data)
     })
 })
 
-
+app.post('/api/:parkCode/comments', verifyToken, (req, res) => {
+    ParkComment.create({ ...req.body, parkCode: req.params.parkCode, by: req.user }, (err, brandNewComment) => {
+        res.json({ success: true, message: "Park Comment created!", parkComment: brandNewComment})
+    })
+})
 
 
 app.get('*', (req, res) => {
