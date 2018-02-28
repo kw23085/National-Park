@@ -61,8 +61,8 @@ class App extends Component {
             return (<ParksDetails parkCode={ parkCode }/>)
           }}/>
         
-          <Route path='/signin' render= {() => {
-            return (<Signin />)
+          <Route path='/signin' render= {(props) => {
+            return (<Signin {...props} onLoginSuccess={this.onLoginSuccess.bind(this)}/>)
           }}/>
 
           <Route path='/signup' render={(props) => {
