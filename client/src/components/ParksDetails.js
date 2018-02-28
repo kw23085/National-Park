@@ -15,7 +15,7 @@ class ParksDetails extends Component {
                 console.log(res)
                 this.setState({
                     park: res.data.data[0], //only one arry we are getting
-                    parkComments: res.data.parkComments
+                    parkComments: res.data.parkComments //get parkComment 
                 
                 })
             })
