@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom'
 
 const Navbar = (props) => {
@@ -11,6 +11,7 @@ const Navbar = (props) => {
 					<span>
                     <NavLink to="/browseparks">Browse Parks</NavLink>
                     <NavLink to="/signout">Sign Out</NavLink>
+                    <span> hi!    {props.currentUser.name}</span>
 					</span>
                     
 				)

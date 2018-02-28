@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import clientAuth from '../clientAuth'
+import { Link } from 'react-router-dom'
 
 class Signin extends Component{
 
@@ -45,6 +46,8 @@ class Signin extends Component{
                     <input type="password" name="password" placeholder="Password" value={password}/>
                     </div>
                     <button>Sign In</button>
+                    <h4>-or-</h4>
+                    <Link to="/signup">Sign Up</Link>
                 </form>
 
 
