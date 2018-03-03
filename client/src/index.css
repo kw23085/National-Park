@@ -23,3 +23,74 @@ li{
 .navbar-span{
   margin: 30px;
 }
+
+.park-details{
+  color: rgba(34, 31, 31, 0.785);
+}
+
+.park-details-sub{
+  color: rgba(43, 43, 43, 0.646);
+  width: 60%;
+  margin: 0 auto;
+  line-height: 1.4em;
+  text-align: justify;
+}
+
+.park-details-comment{
+  color: rgba(43, 43, 43, 0.646);
+  width: 60%;
+  margin: 0 auto;
+  line-height: 1.4em;
+  text-align: center;
+}
+
+.park-list{
+  width: 447px;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 21px;
+  line-height: 1.5em;
+}
+
+/* unvisited link */
+a:link {
+  color:  rgba(43, 43, 43, 0.646);
+}
+
+/* visited link */
+a:visited {
+  color:  rgba(43, 43, 43, 0.646);
+}
+
+/* mouse over link */
+a:hover {
+  color:rgba(82, 81, 81, 0.461);
+}
+
+/* selected link */
+a:active {
+  color:rgba(53, 53, 53, 0.55);
+}
+
+.search-park-input{
+  width: 370px;
+  height: 50px;
+  margin: 0px 0px 19px 0px;
+  font-size: 18px;
+  padding: 15px;
+  color:  rgba(43, 43, 43, 0.646);
+
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: rgba(153, 153, 153, 0.509);
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: rgba(153, 153, 153, 0.509);
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: rgba(153, 153, 153, 0.509);
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: rgba(153, 153, 153, 0.509);
+}

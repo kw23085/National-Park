@@ -38,11 +38,11 @@ class Parks extends Component {
         // console.log('parklist: ', parklist)
         return(
             <div>
-                <h1> Hello! National Parks </h1>
+                <h1 className="park-details"> Hello! National Parks </h1>
                 <h3>
-                    <input onChange={this.updateFilter.bind(this)}ref="filterinput" type="text" placeholder="Search a Park"/>
+                    <input className="search-park-input"onChange={this.updateFilter.bind(this)}ref="filterinput" type="text" placeholder="Search a Park"/>
                     {/* added a !! to parklist */}
-                    <ul>{!!parklist && 
+                    <ul className="park-list">{!!parklist && 
                         parklist.map((p, i)=>{
                         return p.designation === "National Park" ? 
                             <li key={i}> 

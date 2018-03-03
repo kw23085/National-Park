@@ -40,15 +40,16 @@ class ParksDetails extends Component {
 
     render() {
         
-        if(!this.state.park) return <h1>Loading...
-            <img src={`/images/tree.png`} className="App-logo" alt="logo" />
-        </h1>
+        if(!this.state.park) 
+        return <h1 className="park-details" >Loading...
+                    <img src={`/images/tree.png`} className="App-logo" alt="logo" />
+                </h1>
         return(
             <div>
-            <h1 style={{color:"rgba(34, 31, 31, 0.785)"}}>{this.state.park.fullName} | {this.state.park.states}</h1>
-            <h3>-Description-</h3>
+            <h1 className="park-details">{this.state.park.fullName} | {this.state.park.states}</h1>
+            <h3 className="park-details">-Description-</h3>
             <br/>
-            <h4>{this.state.park.description}</h4>
+            <h4 className="park-details-sub">{this.state.park.description}</h4>
             <a href={this.state.park.url}>Visit {this.state.park.fullName}</a>
             <br/>
             <br/>
@@ -65,8 +66,8 @@ class ParksDetails extends Component {
             <button>Add your comment</button>
             </form>
             
-            <h3>{this.state.parkComments.map((c, i) =>{
-                return <div key={i}>{c.body} - {c.by.name}</div>
+            <h3 className="park-details-comment">{this.state.parkComments.map((c, i) =>{
+                return <div key={i}>{c.body} <h4>-{c.by.name} </h4><hr/></div>
             })}</h3>
             <br/>
             <br/>
