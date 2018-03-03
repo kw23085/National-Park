@@ -45,7 +45,7 @@ class ParksDetails extends Component {
         </h1>
         return(
             <div>
-            <h1>{this.state.park.fullName} | {this.state.park.states}</h1>
+            <h1 style={{color:"rgba(34, 31, 31, 0.785)"}}>{this.state.park.fullName} | {this.state.park.states}</h1>
             <h3>-Description-</h3>
             <br/>
             <h4>{this.state.park.description}</h4>
