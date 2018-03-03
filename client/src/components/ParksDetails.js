@@ -64,10 +64,10 @@ class ParksDetails extends Component {
             <input ref="comment" type="text" placeholder="add your comment"/>
             <button>Add your comment</button>
             </form>
-            <h3>{}</h3>
-            <h2>{this.state.parkComments.map((c, i) =>{
+            
+            <h3>{this.state.parkComments.map((c, i) =>{
                 return <div key={i}>{c.body} - {c.by.name}</div>
-            })}</h2>
+            })}</h3>
             <br/>
             <br/>
             <br/>
