@@ -9,7 +9,8 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Signin from './components/Signin';
 import Signup from './components/Signup';
-import SignOut from './components/SignOut'
+import SignOut from './components/SignOut';
+import UserProfile from './components/UserProfile'
 
 
 class App extends Component {
@@ -72,6 +73,10 @@ class App extends Component {
           <Route path='/signout' render={(props) =>{
             return(<SignOut onsignOut= {this.signOut.bind(this)}/>)
           }}/>
+
+          <Route path='/userprofile' render={() => {
+            return(<UserProfile currentUser={currentUser}/>)
+          }} />
           
         </Switch>
         
