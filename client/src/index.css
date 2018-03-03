@@ -18,6 +18,8 @@ li{
   font-weight: bold;
   color: aliceblue;
   opacity: 0.6;
+}
 
-
+.navbar-span{
+  margin: 30px;
 }
