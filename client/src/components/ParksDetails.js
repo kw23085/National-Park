@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import clientAuth from '../clientAuth.js';
-import { Link } from 'react-router-dom';
 
 class ParksDetails extends Component {
     state = { 

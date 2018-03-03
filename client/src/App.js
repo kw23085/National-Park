@@ -74,7 +74,7 @@ class App extends Component {
             return(<SignOut onsignOut= {this.signOut.bind(this)}/>)
           }}/>
 
-          <Route path='/userprofile' render={() => {
+          <Route path='/users/:_id' render={() => {
             return(<UserProfile currentUser={currentUser}/>)
           }} />
           

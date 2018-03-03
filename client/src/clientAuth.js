@@ -64,7 +64,6 @@ function createComment(fields, parkCode) {
 }
 
 
-
 export default {
 	getCurrentUser,
 	logIn,

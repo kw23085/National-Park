@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 const Navbar = (props) => {
     console.log(props)
@@ -11,7 +11,8 @@ const Navbar = (props) => {
 				? (
 					<span style={{margin: '30px'}}>
                     <NavLink to="/browseparks">Browse Parks</NavLink>
-                    <span style={{margin: '30px'}}> Hi!    {props.currentUser.name}</span>
+
+                    <span style={{margin: '30px'}}> <Link to="/users/:id">Hi!    {props.currentUser.name}</Link></span>
                     <NavLink to="/signout">Sign Out</NavLink>
                     
 					</span >

@@ -5,21 +5,13 @@ class UserProfile extends Component{
         beingEdited: null
     }
 
-    onEdit(evt){
-        evt.preventDefault()
-        console.log('changed!')
-        this.setState({
-            beingEdited: this.refs.editBody.value
-        })
-    }
-
    render(){
        console.log('userprofile: ' ,this.props)
        const { currentUser } = this.props
        return(
            <div>
                <legend>{currentUser.name} / Profile</legend>
-               <form onSubmit={this.onEdit.bind(this)}>
+               <form>
                     <div >
                         <label>Name: </label>
                         <input ref="editBody" type="text" defaultValue={currentUser.name}/>
