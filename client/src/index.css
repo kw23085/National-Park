@@ -83,9 +83,9 @@ a:active {
   height: 50px;
   margin: 0px 0px 19px 0px;
   font-size: 18px;
-  padding: 15px;
+  padding: 0px 0px 0px 56px;
   color:  rgba(43, 43, 43, 0.646);
-  background: url("/images/search-icon.png") top right no-repeat; 
+  background: url("/images/search-icon.png") top left no-repeat; 
 
 }
 

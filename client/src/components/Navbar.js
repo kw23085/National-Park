@@ -13,7 +13,7 @@ const Navbar = (props) => {
 					<span className="navbar-span">
                     	<NavLink to="/browseparks">Browse Parks</NavLink>
 						<span className="navbar-span"> 
-							<Link to="/users/:id ">Hi!    {props.currentUser.name}</Link>
+							<Link to={`/users/${props.currentUser._id}`}>Hi!    {props.currentUser.name}</Link>
 						</span>
 						<NavLink to="/signout">Sign Out</NavLink>
                     
