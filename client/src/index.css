@@ -219,6 +219,7 @@ a:active {
   margin: 36px auto;
   border: solid 1px #e8e8e8;
   overflow: auto;
+  font-size: 18px;
 }
 
 .form-comment textarea{

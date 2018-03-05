@@ -56,7 +56,7 @@ class ParksDetails extends Component {
 
             <img style={{width:'100%', height:'auto'}} alt={this.state.park.name} src={`/images/${this.state.park.parkCode}.jpg`}/>
             <form className="form-comment" onSubmit={this.addComment.bind(this)}>
-                <textarea ref="comment" type="text" rows="3" placeholder="add your comment"></textarea><br />
+                <textarea ref="comment" type="text" rows="3" placeholder="add your comment" ></textarea><br />
                 <button className="btn-submit">Add your comment</button>
             </form>
             
