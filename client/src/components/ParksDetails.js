@@ -41,41 +41,28 @@ class ParksDetails extends Component {
     render() {
         
         if(!this.state.park) 
-        return <h1 className="park-details" >Loading...
-                    <img src={`/images/tree.png`} className="App-logo" alt="logo" />
-                </h1>
+        return <div className="loader"><img src={`/images/tree.png`} className="App-logo" alt="logo" /><h3 className="park-details" >Loading...
+                    
+                </h3></div>
         return(
             <div>
             <h1 className="park-details">{this.state.park.fullName} | {this.state.park.states}</h1>
             <h3 className="park-details">-Description-</h3>
             <br/>
             <h4 className="park-details-sub">{this.state.park.description}</h4>
-            <a href={this.state.park.url}>Visit {this.state.park.fullName}</a>
-            <br/>
-            <br/>
+            <div className="line"></div>
+            <a href={this.state.park.url}><div className="park-link" >Visit {this.state.park.fullName}</div></a>
+            
 
             <img style={{width:'100%', height:'auto'}} alt={this.state.park.name} src={`/images/${this.state.park.parkCode}.jpg`}/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <form onSubmit={this.addComment.bind(this)}>
-            <input ref="comment" type="text" placeholder="add your comment"/>
-            <button>Add your comment</button>
+            <form className="form-comment" onSubmit={this.addComment.bind(this)}>
+                <textarea ref="comment" type="text" rows="3" placeholder="add your comment"></textarea><br />
+                <button className="btn-submit">Add your comment</button>
             </form>
             
             <h3 className="park-details-comment">{this.state.parkComments.map((c, i) =>{
                 return <div key={i}>{c.body} <h4>-{c.by.name} </h4><hr/></div>
             })}</h3>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-
             
             </div>
         )

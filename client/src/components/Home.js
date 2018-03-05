@@ -7,10 +7,7 @@ class Home extends Component {
             <div className="heroImg"> 
                 <img style={{width:'100%', height:'auto'}} alt="" src={`/images/death-valley.jpg`}/>   
                 <div className="centerText">Pocket Park</div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
+                <div className="credit">Special Thanks to <a href="https://www.nps.gov/index.htm" target="_blank">National Park Service</a><img className="nps-logo" alt="" src={`/images/nps-logo.png`} /></div>
             </div>
         )
     }

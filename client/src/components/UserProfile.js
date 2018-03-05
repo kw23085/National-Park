@@ -9,23 +9,25 @@ class UserProfile extends Component{
        console.log('userprofile: ' ,this.props)
        const { currentUser } = this.props
        return(
-           <div>
-               <legend>{currentUser.name} / Profile</legend>
+           <div className="panel-userProfile">
+               <legend><h2>{currentUser.name} / Profile </h2></legend>
                <form>
-                    <div >
+                    <div className="input-field">
                         <label>Name: </label>
                         <input ref="editBody" type="text" defaultValue={currentUser.name}/>
                     </div>
 
-                    <div>
+                    <div className="input-field">
                         <label>Email: </label>
                         <input ref="editBody" type="text" defaultValue={currentUser.email}/> 
                     </div>
 
-                    <button>Save</button>
+                    <button className="btn-signin-signup-save">Save</button>
                 </form>
-                <h5> -or- </h5>
-                <button>Delete My Account</button>
+                <div className="line">
+                        <div className="line-label">or</div>
+                    </div>
+                <button className="btn-delete">Delete My Account</button>
            </div>
        )
    }

@@ -32,21 +32,23 @@ class Signin extends Component{
     render(){
         const { email, password } = this.state.fields
         return(
-            <div>
-                <h1>Sign In</h1>
+            <div className="panel-signin-signup">
+                <h1 className="SignIn">Sign In</h1>
                 <form onSubmit={this.onUserSignupForm.bind(this)} onChange={this.onInputChange.bind(this)}>
 
-                    <div>
-                    <label>Email:</label>
+                    <div className="input-field">
+                    <label>Email:</label><br />
                     <input type="text" name="email" placeholder="Email" value={email}/>
                     </div>
 
-                    <div>
-                    <label>Password:</label>
+                    <div className="input-field">
+                    <label>Password:</label><br />
                     <input type="password" name="password" placeholder="Password" value={password}/>
                     </div>
-                    <button>Sign In</button>
-                    <h4>-or-</h4>
+                    <button className="btn-signin-signup-save">Sign In</button>
+                    <div className="line">
+                        <div className="line-label">or</div>
+                    </div>
                     <Link to="/signup">Sign Up</Link>
                 </form>
 

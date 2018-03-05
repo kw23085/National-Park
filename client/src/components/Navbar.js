@@ -5,7 +5,7 @@ const Navbar = (props) => {
     console.log(props)
 	return (
 		<div>
-            <div style={{margin: '30px'}}>
+            <div className="nav-bar">
 
 				<NavLink to="/">Home</NavLink>
 				{props.currentUser
@@ -30,7 +30,6 @@ const Navbar = (props) => {
 					)
             	}
             </div>
-			<hr/>
 		</div>
 	)
 }

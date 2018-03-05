@@ -31,25 +31,26 @@ class Signup extends Component{
     render(){
         const { name, email, password } = this.state.fields
         return(
-            <div>
-                <h1>Sign UP</h1>
-                <form onSubmit={this.onUserSignupForm.bind(this)} onChange={this.onInputChange.bind(this)}>
-                    <div>
-                    <label>Name:</label>
-                    <input type="text" name="name" placeholder="Name" value={name}/>
-                    </div>
+            <div className="panel-signin-signup">
+                <h1 className="SignUp">Sign UP</h1>
+                    <form onSubmit={this.onUserSignupForm.bind(this)} onChange={this.onInputChange.bind(this)}>
+                        <div className="input-field">
+                            <label>Name:</label>
+                            <input type="text" name="name" placeholder="Name" value={name}/>
+                        </div>
 
-                    <div>
-                    <label>Email:</label>
-                    <input type="text" name="email" placeholder="Email" value={email}/>
-                    </div>
+                        <div className="input-field">
+                            <label>Email:</label>
+                            <input type="text" name="email" placeholder="Email" value={email}/>
+                        </div>
 
-                    <div>
-                    <label>Password:</label>
-                    <input type="password" name="password" placeholder="Password" value={password}/>
-                    </div>
-                    <button>Sign UP</button>
-                </form>
+                        <div className="input-field">
+                            <label>Password:</label>
+                            <input type="password" name="password" placeholder="Password" value={password}/>
+                        </div>
+                        
+                        <button className="btn-signin-signup-save">Sign UP</button>
+                    </form>
 
 
             </div>
