@@ -34,6 +34,10 @@ class Parks extends Component {
             parklist = parks.filter((p) => {
                 return p.fullName.toLowerCase().includes(filterString.toLowerCase())
             })
+        } else {
+        return <div className="loader"><img src={`/images/tree.png`} className="App-logo" alt="logo" /><h3 className="park-details" >Loading...
+                    
+                </h3></div>
         }
         // console.log('parklist: ', parklist)
         return(
