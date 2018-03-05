@@ -54,22 +54,15 @@ function signUp(userInfo) {
 // //update user
 
 function updatedUser(id, fields) {
-	return clientAuth({method: 'patch', url: `/api/users/${id}`, data: fields }).then(res => {
-		if(res.data.success) {
-			clientAuth.defaults.headers.common.token = setToken(res.data.token)
-		}
-		return res.data.user
-	})
-	
+	return clientAuth({method: 'patch', url: `/api/users/${id}`, data: fields })			
 }
 
 //delete user
 
-function deleteUser (){
-	localStorage.removeItem('token')
-	delete clientAuth.defaults.headers.common.token
-	return true
+function deleteUser(id, fields) {
+	return clientAuth({method: 'delete', url:`/api/users/${id}`, data: fields})
 }
+
 
 
 function logOut() {
@@ -92,5 +85,5 @@ export default {
 	logOut,
 	createComment,
 	deleteUser,
-	updatedUser
+	updatedUser,
 }
