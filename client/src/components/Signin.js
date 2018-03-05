@@ -34,23 +34,22 @@ class Signin extends Component{
         return(
             <div className="panel-signin-signup">
                 <h1 className="SignIn">Sign In</h1>
-                <form onSubmit={this.onUserSignupForm.bind(this)} onChange={this.onInputChange.bind(this)}>
+                    <form onSubmit={this.onUserSignupForm.bind(this)} onChange={this.onInputChange.bind(this)}>
+                        <div className="input-field">
+                            <label>Email:</label><br />
+                            <input type="text" name="email" placeholder="Email" value={email}/>
+                        </div>
 
-                    <div className="input-field">
-                    <label>Email:</label><br />
-                    <input type="text" name="email" placeholder="Email" value={email}/>
-                    </div>
-
-                    <div className="input-field">
-                    <label>Password:</label><br />
-                    <input type="password" name="password" placeholder="Password" value={password}/>
-                    </div>
-                    <button className="btn-signin-signup-save">Sign In</button>
-                    <div className="line">
-                        <div className="line-label">or</div>
-                    </div>
-                    <Link to="/signup">Sign Up</Link>
-                </form>
+                        <div className="input-field">
+                            <label>Password:</label><br />
+                            <input type="password" name="password" placeholder="Password" value={password}/>
+                        </div>
+                        <button className="btn-signin-signup-save">Sign In</button>
+                        <div className="line">
+                            <div className="line-label">or</div>
+                        </div>
+                            <Link to="/signup">Sign Up</Link>
+                    </form>
 
 
             </div>

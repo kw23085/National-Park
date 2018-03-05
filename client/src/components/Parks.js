@@ -21,24 +21,27 @@ class Parks extends Component {
                 })
             })
     }
+    
     updateFilter(){
         this.setState({
             filterString: this.refs.filterinput.value
         })
     }
+    
     render(){
         const { filterString, parks } = this.state
         // creates a parklist if there are parks in array
         let parklist;
-        if (parks.length > 0) {
-            parklist = parks.filter((p) => {
-                return p.fullName.toLowerCase().includes(filterString.toLowerCase())
-            })
-        } else {
-        return <div className="loader"><img src={`/images/tree.png`} className="App-logo" alt="logo" /><h3 className="park-details" >Loading...
-                    
-                </h3></div>
-        }
+            if (parks.length > 0) {
+                parklist = parks.filter((p) => {
+                    return p.fullName.toLowerCase().includes(filterString.toLowerCase())
+                })
+            } else {
+            return  <div className="loader">
+                        <img src={`/images/tree.png`} className="App-logo" alt="logo" />
+                        <h3 className="park-details" >Loading...</h3>
+                    </div>
+            }
         // console.log('parklist: ', parklist)
         return(
             <div>
