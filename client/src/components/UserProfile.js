@@ -3,9 +3,6 @@ import clientAuth from '../clientAuth.js';
 import { Redirect } from 'react-router-dom'
 
 class UserProfile extends Component{
-    state = {
-        beingEdited: null
-    }
 
     editUser(evt){
         evt.preventDefault()
@@ -39,10 +36,10 @@ class UserProfile extends Component{
        console.log('userprofile: ' ,this.props)
        const { currentUser } = this.props
        return(
-           <div>
+           <div className="panel-userProfile">
                <legend>{currentUser.name} / Profile</legend>
                <form onSubmit={this.editUser.bind(this)}>
-                    <div >
+                    <div className="input-field">
                         <label>Name: </label>
                         <input ref="editName" type="text" name="name" defaultValue={currentUser.name}/>
                     </div>
@@ -54,8 +51,11 @@ class UserProfile extends Component{
 
                     <button className="btn-signin-signup-save">Save</button>
                 </form>
-                <h5> -or- </h5>
-                <button onClick={this.deleteUser.bind(this)}>Delete My Account</button>
+                    <div className="line">
+                        <div className="line-label">or</div>
+                    </div>
+
+                <button className="btn-delete" onClick={this.deleteUser.bind(this)}>Delete My Account</button>
            </div>
        )
    }
