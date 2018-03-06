@@ -14,11 +14,11 @@ class UserProfile extends Component{
             name: this.refs.editName.value,
             email: this.refs.editEmail.value
         }
-        clientAuth.updatedUser(this.props.currentUser._id, fields).then(res => {
-            console.log('save btn clicked', res.data)
-            return <Redirect to="/browseparks" />
-        
-    })
+        clientAuth.updatedUser(this.props.currentUser._id, fields)
+            .then(user => {
+                this.props.updateCurrentUser(user)
+                this.props.history.push('/browseparks')
+            })
 
     }
 
@@ -29,8 +29,10 @@ class UserProfile extends Component{
             name: this.refs.editName.value,
             email: this.refs.editEmail.value
         }
-        clientAuth.deleteUser(this.props.currentUser._id, fields). then(res => {
-            
+        clientAuth.deleteUser(this.props.currentUser._id, fields)
+            .then(res => {
+                this.props.history.push('/')
+                this.props.onsignOut()
         })
     
     }

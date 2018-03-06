@@ -42,7 +42,7 @@ app.get('/api/:parkCode' ,(req, res) => {
 //get nation parks api
 app.get('/api', (req, res) => {
     request.get(`https://developer.nps.gov/api/v1/parks?limit=504&start=1&q=national%20park&fields=national%20park&fields=&sort=nationalpark&sort=&api_key=${APIKEY}`, (err, resposne, body) => {
-        console.log(body)
+        // console.log(body)
         const data = JSON.parse(body)
         res.json(data)
     })

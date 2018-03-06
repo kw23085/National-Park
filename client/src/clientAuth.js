@@ -54,7 +54,16 @@ function signUp(userInfo) {
 // //update user
 
 function updatedUser(id, fields) {
-	return clientAuth({method: 'patch', url: `/api/users/${id}`, data: fields })			
+	return clientAuth({method: 'patch', url: `/api/users/${id}`, data: fields })
+		.then(res => {
+			const token = res.data.token
+			if(token) {
+				clientAuth.defaults.headers.common.token = setToken(token)
+				return jwtDecode(token)
+			} else {
+				return false
+			}
+		})		
 }
 
 //delete user
