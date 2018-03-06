@@ -19,7 +19,6 @@ class UserProfile extends Component{
                 this.props.updateCurrentUser(user)
                 this.props.history.push('/browseparks')
             })
-
     }
 
     deleteUser(evt){
@@ -33,8 +32,7 @@ class UserProfile extends Component{
             .then(res => {
                 this.props.history.push('/')
                 this.props.onsignOut()
-        })
-    
+        })   
     }
 
    render(){

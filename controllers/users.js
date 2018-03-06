@@ -47,7 +47,7 @@ module.exports = {
     //delete an existing user
     destroy: (req, res) => {
 		User.findByIdAndRemove(req.params.id, (err, user) => {
-			ParkComment.remove({by: req.params.id}, function(err, data){
+			ParkComment.remove({by: req.params.id}, function(err, data){ // also need to delete user's comment
 				res.json({success: true, message: "User deleted.", user})
 			})
 		})
