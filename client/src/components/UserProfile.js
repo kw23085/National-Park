@@ -1,33 +1,61 @@
 import React , { Component } from 'react';
+import clientAuth from '../clientAuth.js';
+import { Redirect } from 'react-router-dom'
 
 class UserProfile extends Component{
     state = {
         beingEdited: null
     }
 
+    editUser(evt){
+        evt.preventDefault()
+        console.log("edited user", this.props.currentUser._id)
+        const fields = {
+            name: this.refs.editName.value,
+            email: this.refs.editEmail.value
+        }
+        clientAuth.updatedUser(this.props.currentUser._id, fields)
+            .then(user => {
+                this.props.updateCurrentUser(user)
+                this.props.history.push('/browseparks')
+            })
+    }
+
+    deleteUser(evt){
+        evt.preventDefault()
+        console.log('user deleted!')
+        const fields = {
+            name: this.refs.editName.value,
+            email: this.refs.editEmail.value
+        }
+        clientAuth.deleteUser(this.props.currentUser._id, fields)
+            .then(res => {
+                this.props.history.push('/')
+                this.props.onsignOut()
+        })   
+    }
+
    render(){
        console.log('userprofile: ' ,this.props)
        const { currentUser } = this.props
        return(
-           <div className="panel-userProfile">
-               <legend><h2>{currentUser.name} / Profile </h2></legend>
-               <form>
-                    <div className="input-field">
+           <div>
+               <legend>{currentUser.name} / Profile</legend>
+               <form onSubmit={this.editUser.bind(this)}>
+                    <div >
                         <label>Name: </label>
-                        <input ref="editBody" type="text" defaultValue={currentUser.name}/>
+                        <input ref="editName" type="text" name="name" defaultValue={currentUser.name}/>
                     </div>
 
                     <div className="input-field">
                         <label>Email: </label>
-                        <input ref="editBody" type="text" defaultValue={currentUser.email}/> 
+                        <input ref="editEmail" type="text"  name="email" defaultValue={currentUser.email}/> 
                     </div>
 
                     <button className="btn-signin-signup-save">Save</button>
                 </form>
-                <div className="line">
-                        <div className="line-label">or</div>
-                    </div>
-                <button className="btn-delete">Delete My Account</button>
+                <h5> -or- </h5>
+                <button onClick={this.deleteUser.bind(this)}>Delete My Account</button>
            </div>
        )
    }

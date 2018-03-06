@@ -9,7 +9,7 @@ li{
 
 .centerText{ 
   position: absolute;
-  top:43%;
+  top:53%;
   left:50%;
   transform: translate(-50%, -50%);
   font-size: 90px;
@@ -109,7 +109,7 @@ a:active {
   height: 50px;
   margin: 0px 0px 19px 0px;
   font-size: 18px;
-  padding: 15px;
+  padding: 0px 0px 0px 56px;
   color:  rgba(43, 43, 43, 0.646);
   background: url("/images/search-icon.png") top right no-repeat; 
   border: solid 1px #e8e8e8;

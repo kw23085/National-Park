@@ -1,4 +1,5 @@
 const User = require('../models/User.js')
+ParkComment = require('../models/ParkComment.js')
 
 const signToken = require('../serverAuth.js').signToken
 //import the signToken function,create signed tokens 
@@ -37,7 +38,8 @@ module.exports = {
 		User.findById(req.params.id, (err, user) => {
 			Object.assign(user, req.body)
 			user.save((err, updatedUser) => {
-				res.json({success: true, message: "User updated.", user})
+				const token = signToken(updatedUser)
+				res.json({success: true, message: "User updated.", token})
 			})
 		})
 	},
@@ -45,7 +47,9 @@ module.exports = {
     //delete an existing user
     destroy: (req, res) => {
 		User.findByIdAndRemove(req.params.id, (err, user) => {
-			res.json({success: true, message: "User deleted.", user})
+			ParkComment.remove({by: req.params.id}, function(err, data){ // also need to delete user's comment
+				res.json({success: true, message: "User deleted.", user})
+			})
 		})
 	},
 

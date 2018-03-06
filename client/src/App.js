@@ -27,7 +27,13 @@ class App extends Component {
   signOut() {
 		clientAuth.logOut()
 		this.setState({ currentUser: null })
-	}
+  }
+  
+  updateCurrentUser(user){
+    this.setState({
+      currentUser: clientAuth.getCurrentUser()
+    })
+  }
 
 
   render() {
@@ -74,8 +80,8 @@ class App extends Component {
             return(<SignOut onsignOut= {this.signOut.bind(this)}/>)
           }}/>
 
-          <Route path='/users/:_id' render={() => {
-            return(<UserProfile currentUser={currentUser}/>)
+          <Route path='/users/:_id' render={(props) => {
+            return(<UserProfile history={props.history} currentUser={currentUser} updateCurrentUser={this.updateCurrentUser.bind(this)} onsignOut= {this.signOut.bind(this)}/>)
           }} />
           
         </Switch>
