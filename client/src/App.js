@@ -51,7 +51,7 @@ class App extends Component {
           }} />
           
           <Route path='/home' render={() =>{
-            return (<Home/> )
+            return (<Home currentUser={currentUser}/> )
           }}/>
 
           <Route exact path='/browseparks' render={() => {
