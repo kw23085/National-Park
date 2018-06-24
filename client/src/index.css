@@ -3,11 +3,11 @@ body {
   padding: 0;
 }
 
-li{
+li {
   list-style: none;
 }
 
-.centerText{ 
+.centerText { 
   position: absolute;
   top:53%;
   left:50%;
@@ -19,38 +19,61 @@ li{
   opacity: 1;  
 }
 
-.credit{
+.credit {
   margin: 36px 0px 0px 0px;
   color:rgba(43, 43, 43, 0.646);
 }
 
-.nps-logo{
+.nps-logo {
   width: 25px;
   margin: 0px 0px 0px 12px;
 }
 
-.loader{
+.loader {
   margin: 48px 0px 0px 0px;
 }
 
 /* Navbar */
 .nav-bar{
-  height: 90px;
+  height: 55px;
   width: 100%;
-  line-height: 100px;
-  border-bottom: solid 1px #e8e8e8;
+  /* line-height: 100px; */
+  /* border-bottom: solid 1px #e8e8e8; */
+  background: black;
+  position: fixed;
 }
 
-.navbar-span{
+.logo {
+  float: left;
+  height: 100%;
+  line-height: 53px;
+  margin-left: 2em;
+}
+
+#logo-text {
+  margin-left: 1em;
+  color: white;
+  font-weight: bold;
+  font-size: large;
+  line-height: 53px;
+}
+
+.navbar-span {
   margin: 30px;
 }
 
+.navlink-wrapper {
+  float: right;
+  height: 100%;
+  line-height: 53px;
+}
+
 /* Park-details */
-.park-details{
+.park-details {
   color: rgba(34, 31, 31, 0.785);
 }
 
-.park-details-sub{
+.park-details-sub {
   color: rgba(43, 43, 43, 0.646);
   width: 60%;
   margin: 0 auto;
@@ -58,7 +81,7 @@ li{
   text-align: justify;
 }
 
-.park-details-comment{
+.park-details-comment {
   color: rgba(43, 43, 43, 0.646);
   width: 60%;
   margin: 0 auto;
@@ -66,12 +89,12 @@ li{
   text-align: center;
 }
 
-.park-link{
+.park-link {
   margin: 48px 0px 48px 0px;
 }
 
 /* Park */
-.park-list{
+.park-list {
   width: 447px;
   margin: 0 auto;
   text-align: left;
@@ -81,7 +104,7 @@ li{
 
 /* unvisited link */
 a:link {
-  color:  rgba(43, 43, 43, 0.646);
+  color: white;
   text-decoration: none;
   transition: 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
   transition-property: color;
@@ -89,23 +112,23 @@ a:link {
 
 /* visited link */
 a:visited {
-  color:  rgba(43, 43, 43, 0.646);
+  color: white;
   text-decoration: none;
 }
 
 /* mouse over link */
-a:hover {
+/* a:hover {
   color:rgba(0, 0, 0, 1);
   text-decoration: none;
-}
+} */
 
 /* selected link */
-a:active {
+/* a:active {
   color:rgba(53, 53, 53, 0.55);
   text-decoration: none;
-}
+} */
 
-.search-park-input{
+.search-park-input {
   width: 370px;
   height: 50px;
   margin: 0px 0px 19px 0px;
@@ -131,7 +154,7 @@ a:active {
   color: rgba(153, 153, 153, 0.509);
 }
 
-.park-name{
+.park-name {
   margin: 0px 0px 24px 0px;
   border-bottom: 1px solid #e4e4e4;
   padding: 12px 0px 12px 0px;
@@ -139,36 +162,36 @@ a:active {
   transition-property: border;
 }
 
-.park-name:hover{
+.park-name:hover {
   border-bottom: 1px solid #000000 !important;
 }
 
 /* Sign in form */
 
-.panel-signin-signup{
+.panel-signin-signup {
   width: 360px;
   margin: 36px auto;
   border: solid 1px #e8e8e8;
   padding: 36px;
 }
-.SignIn{
+.SignIn {
   margin: 0px 0px 36px 0px;
   color: rgba(34, 31, 31, 0.785);
 }
 
-.SignUp{
+.SignUp {
   margin: 0px 0px 36px 0px;
   color: rgba(34, 31, 31, 0.785);
 
 }
 
-.input-field{
+.input-field {
   text-align: left;
   width: 100%;
   margin: 0px 0px 18px 0px;
 }
 
-.input-field input{
+.input-field input {
   width: 100%;
   height: 60px;
   font-size: 1.5em;
@@ -176,7 +199,7 @@ a:active {
   color:  rgba(43, 43, 43, 0.646);
 }
 
-.btn-signin-signup-save{
+.btn-signin-signup-save {
   width: 100%;
   height: 60px;
   background: #000000;
@@ -185,7 +208,7 @@ a:active {
   border-radius: 4px;
 }
 
-.btn-delete{
+.btn-delete {
   width: 100%;
   height: 60px;
   color: #F44336;
@@ -193,13 +216,13 @@ a:active {
   border-radius: 4px;
 }
 
-.line{
+.line {
   width: 100%;
   border-bottom: solid 1px #e8e8e8;
   margin: 36px 0px 36px 0px;
 }
 
-.line-label{
+.line-label {
   width: 60px;
   background: #fff;
   position: relative;
@@ -207,14 +230,14 @@ a:active {
   margin: 0 auto;
 }
 
-.panel-userProfile{
+.panel-userProfile {
   width: 360px;
   margin: 36px auto;
   border: solid 1px #e8e8e8;
   padding: 36px;
 }
 
-.form-comment{
+.form-comment {
   width: 480px;
   padding: 36px;
   margin: 36px auto;
@@ -223,7 +246,7 @@ a:active {
   font-size: 18px;
 }
 
-.form-comment textarea{
+.form-comment textarea {
   width: 100%;
   height: 100px;
   margin: 0px 0px 18px 0px;
@@ -233,7 +256,7 @@ a:active {
   color:  rgba(43, 43, 43, 0.646);
 }
 
-.btn-submit{
+.btn-submit {
   width: 170px;
   float: right;
   border: none;
