@@ -68,6 +68,33 @@ li {
   line-height: 53px;
 }
 
+nav a {
+  color: white;
+}
+
+nav a:link {
+  color: #686e77;
+  text-decoration: none;
+  transition: 200ms;
+  transition-property: color;
+}
+
+/* nav a:visited {
+  color: #686e77;
+  text-decoration: none;
+} */
+
+/* mouse over link */
+nav a:hover {
+  color: #2F5278;
+  text-decoration: none;
+}
+
+nav a:active {
+  color: #2F5278 !important;
+  text-decoration: none;
+}
+
 /* Park-details */
 .park-details {
   color: rgba(34, 31, 31, 0.785);
@@ -101,32 +128,6 @@ li {
   font-size: 21px;
   line-height: 1.5em;
 }
-
-/* unvisited link */
-a:link {
-  color: white;
-  text-decoration: none;
-  transition: 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
-  transition-property: color;
-}
-
-/* visited link */
-a:visited {
-  color: white;
-  text-decoration: none;
-}
-
-/* mouse over link */
-/* a:hover {
-  color:rgba(0, 0, 0, 1);
-  text-decoration: none;
-} */
-
-/* selected link */
-/* a:active {
-  color:rgba(53, 53, 53, 0.55);
-  text-decoration: none;
-} */
 
 .search-park-input {
   width: 370px;

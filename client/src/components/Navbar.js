@@ -6,11 +6,11 @@ const Navbar = (props) => {
 			<nav>
 				<div>
 					<div className="nav-bar">
-						<div class="logo">
+						<div className="logo">
 							<a href="/"><img src="https://i.imgur.com/G9eK8Xj.png" alt="logo" /></a>
 							<a href="/"><span id="logo-text">Park Explorer</span></a>
 						</div>
-						<div class="navlink-wrapper">
+						<div className="navlink-wrapper">
 							<NavLink to="/">Home</NavLink>
 							{props.currentUser
 								? (
