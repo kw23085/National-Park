@@ -12,11 +12,26 @@ li {
   top:53%;
   left:50%;
   transform: translate(-50%, -50%);
-  font-size: 90px;
+  font-size: 2vw;
   font-family: Helvetica, sans-serif;
-  font-weight: 200;
-  color: aliceblue;
+  font-weight: 400;
+  color: black;
   opacity: 1;  
+}
+
+.hero-large-text {
+  font-size: 4vw;
+}
+
+/* Credits */
+
+.credit a {
+  color: #767676;
+}
+
+.credit a:hover {
+  color: #000000;
+  text-decoration: none;
 }
 
 .credit {
@@ -94,6 +109,13 @@ nav a:active {
   color: #2F5278 !important;
   text-decoration: none;
 }
+
+/* Hero */
+.hero-img {
+  width: 100%;
+  height: auto;
+}
+
 
 /* Park-details */
 .park-details {
